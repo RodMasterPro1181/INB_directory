@@ -16,8 +16,8 @@
         %td= person.last_name
         %td= link_to 'Show', person
         %td= link_to 'Edit', edit_person_path(person)
-        %td= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }
-
+        %td= link_to 'Destroy', person, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }
+     
 %br
 
 = link_to 'New Person', new_person_path
