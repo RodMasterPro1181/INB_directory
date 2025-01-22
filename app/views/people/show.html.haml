@@ -1,14 +1,13 @@
 %p#notice= notice
 
+%h1= @person.name
+
 %p
-  %b Name:
-  = @person.name
-%p
-  %b Last name:
+  %strong Last Name:
   = @person.last_name
 
 = link_to 'Edit', edit_person_path(@person)
 \|
 = link_to 'Back', people_path
-
+\|
 = link_to 'Destroy', person_path(@person), method: :delete, data: { confirm: 'Are you sure?' }

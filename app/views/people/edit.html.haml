@@ -1,7 +1,20 @@
-%h1 Editing person
+%h1= action_name == 'new' ? 'New Person' : 'Editing Person'
 
-= render 'form'
+= form_for @person do |f|
+  - if @person.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:"
+      %ul
+        - @person.errors.full_messages.each do |message|
+          %li= message
 
-= link_to 'Show', @person
-\|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .actions
+    = f.submit 'Save'
+
 = link_to 'Back', people_path
