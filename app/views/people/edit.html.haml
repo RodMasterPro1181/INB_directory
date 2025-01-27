@@ -1,20 +1,23 @@
-%h1= action_name == 'new' ? 'New Person' : 'Editing Person'
+%h1.text-center.mb-4= action_name == 'new' ? 'New Person' : 'Editing Person'
 
-= form_for @person do |f|
-  - if @person.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:"
-      %ul
-        - @person.errors.full_messages.each do |message|
-          %li= message
+.container
+  = form_for @person, html: { class: "needs-validation", novalidate: true } do |f|
+    - if @person.errors.any?
+      #error_explanation.alert.alert-danger
+        %h4= "#{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:"
+        %ul
+          - @person.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .actions
-    = f.submit 'Save'
+    .mb-3
+      = f.label :name, class: "form-label"
+      = f.text_field :name, class: "form-control", required: true
 
-= link_to 'Back', people_path
+    .mb-3
+      = f.label :last_name, class: "form-label"
+      = f.text_field :last_name, class: "form-control", required: true
+
+    .actions.mt-3
+      = f.submit 'Save', class: "btn btn-primary"
+
+  = link_to 'Back', people_path, class: "btn btn-secondary mt-3"

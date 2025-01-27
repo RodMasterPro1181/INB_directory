@@ -1,0 +1,35 @@
+$primary-color: #6c63ff; // Cambiar el color principal
+$font-family-sans-serif: 'Poppins', sans-serif;
+
+@import "bootstrap";
+
+body {
+  font-family: $font-family-sans-serif;
+}
+
+.navbar {
+  background-color: $primary-color !important;
+}
+
+footer {
+  background-color: darken($primary-color, 10%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .wrapper {
+    flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio disponible */
+  }
+  
+  footer {
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: white; /* Texto blanco */
+    text-align: center;
+    padding: 1rem;
+  }
+  

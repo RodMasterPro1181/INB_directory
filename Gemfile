@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+#Agregamos el webpacker
+gem 'webpacker', '~> 5.0'
 # INB directory
 gem "haml-rails","~> 2.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
