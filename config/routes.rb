@@ -12,4 +12,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  scope "(:locale)", locale: /en|nl/ do
+    resources :books
+  end
+  
+  get "/:locale" => "dashboard#index"
+
+  root to: "home#index"
+ 
+  
 end
