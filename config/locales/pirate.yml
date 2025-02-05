@@ -1,6 +1,10 @@
 pirate:
   hello_world: Ahoy World
   hello_flash: Ahoy Flash
+pirate:
+  time:
+    formats:
+      short: "arrrround %H'ish"
 
 
- 
+

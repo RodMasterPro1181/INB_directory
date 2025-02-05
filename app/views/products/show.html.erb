@@ -1,2 +1,5 @@
 <!-- app/views/products/show.html.erb -->
+<%= "#{t('currency')}#{@product.price}" %>
 <%= t('product_price', price: @product.price) %>
+
+

@@ -38,4 +38,13 @@ en:
     true:    'True!'
     off:     'Off!'
     false:   'False!'
-  
+en:
+  currency: "$"
+en:
+  product_price: "$%{price}"
+
+en:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Record is invalid"
