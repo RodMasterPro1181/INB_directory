@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get "/:locale" => "dashboard#index"
 
   root to: "home#index"
- 
+  
   
 end
