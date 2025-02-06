@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &action)
   end
-
+  
   private
     def extract_locale_from_accept_language_header
       request.env["HTTP_ACCEPT_LANGUAGE"].scan(/^[a-z]{2}/).first
