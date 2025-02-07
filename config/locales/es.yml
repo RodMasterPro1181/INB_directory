@@ -2,3 +2,7 @@ es:
   product_price: "%{price} €"
 es:
   currency: "€"
+es:
+  books:
+    index:
+      title: "Título"

@@ -48,3 +48,11 @@ en:
     errors:
       messages:
         record_invalid: "Record is invalid"
+en:
+  welcome:
+    title: "Welcome!"
+    content: "Welcome to the %{app_name}"
+en:
+  books:
+    create:
+      success: Book created!
