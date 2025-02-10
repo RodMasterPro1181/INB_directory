@@ -1,0 +1,18 @@
+ar:
+  activerecord:
+    attributes:
+      person:
+        name: "الاسم"
+        last_name: "اللقب"
+  views:
+    people:
+      index:
+        title: "قائمة الأشخاص"
+        new: "شخص جديد"
+        actions: "الإجراءات"
+        show: "عرض"
+        edit: "تعديل"
+        destroy: "حذف"
+        confirm_delete: "هل أنت متأكد؟"
+  flash:
+    hello_flash: "مرحبًا فلاش"

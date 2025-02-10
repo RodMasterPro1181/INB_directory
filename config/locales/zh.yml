@@ -1,0 +1,18 @@
+zh:
+  activerecord:
+    attributes:
+      person:
+        name: "名字"
+        last_name: "姓氏"
+  views:
+    people:
+      index:
+        title: "人员列表"
+        new: "新建人员"
+        actions: "操作"
+        show: "显示"
+        edit: "编辑"
+        destroy: "删除"
+        confirm_delete: "你确定吗？"
+  flash:
+    hello_flash: "你好，闪存"

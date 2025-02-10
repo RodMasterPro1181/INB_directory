@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
   
   # GET /people or /people.json
   def index
+    flash[:notice] = t('flash.hello_flash')
     @people = Person.all
   end
 

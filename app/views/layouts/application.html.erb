@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <!-- CSS de Bootstrap -->
     <%= stylesheet_pack_tag "application", media: "all" %>
   </head>
@@ -27,6 +27,25 @@
             <li class="nav-item">
               <a class="nav-link" href="/contact">Contacto</a>
             </li>
+            
+            <!-- Barra de idiomas -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                🌍 <%= t("navbar.select_language") %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><%= link_to "🇪🇸 Español", url_for(locale: :es), class: "dropdown-item" %></li>
+                <li><%= link_to "🇺🇸 English", url_for(locale: :en), class: "dropdown-item" %></li>
+                <li><%= link_to "🇩🇪 Deutsch", url_for(locale: :de), class: "dropdown-item" %></li>
+                <li><%= link_to "🇫🇷 Français", url_for(locale: :fr), class: "dropdown-item" %></li>
+                <li><%= link_to "🇮🇹 Italiano", url_for(locale: :it), class: "dropdown-item" %></li>
+                <li><%= link_to "🇵🇹 Português", url_for(locale: :pt), class: "dropdown-item" %></li>
+                <li><%= link_to "🇨🇳 中文", url_for(locale: :zh), class: "dropdown-item" %></li>
+                <li><%= link_to "🇯🇵 日本語", url_for(locale: :ja), class: "dropdown-item" %></li>
+                <li><%= link_to "🇸🇦 العربية", url_for(locale: :ar), class: "dropdown-item" %></li>
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -46,3 +65,4 @@
     <%= javascript_pack_tag "application", defer: true %>
   </body>
 </html>
+

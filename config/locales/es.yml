@@ -6,3 +6,21 @@ es:
   books:
     index:
       title: "Título"
+es:
+  activerecord:
+    attributes:
+      person:
+        name: "Nombre"
+        last_name: "Apellido"
+  views:
+    people:
+      index:
+        title: "Listado de Personas"
+        new: "Nueva Persona"
+        actions: "Acciones"
+        show: "Mostrar"
+        edit: "Editar"
+        destroy: "Eliminar"
+        confirm_delete: "¿Estás seguro?"
+  flash:
+    hello_flash: "Hola Flash"

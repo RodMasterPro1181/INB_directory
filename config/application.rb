@@ -11,8 +11,15 @@ module InbDirectory
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
     
-    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
-    config.i18n.default_locale = :de
+   # Configurar idioma predeterminado
+   config.i18n.default_locale = :en 
+
+   # Agregar todos los idiomas permitidos
+   config.i18n.available_locales = [:en, :es, :de, :fr, :it, :pt, :zh, :ja, :ar]
+
+   # Habilitar fallback en caso de falta de traducción
+   config.i18n.fallbacks = true
+  # Para evitar errores si falta una traducción
     
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

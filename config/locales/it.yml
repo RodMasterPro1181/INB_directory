@@ -1,0 +1,18 @@
+it:
+  activerecord:
+    attributes:
+      person:
+        name: "Nome"
+        last_name: "Cognome"
+  views:
+    people:
+      index:
+        title: "Elenco delle persone"
+        new: "Nuova persona"
+        actions: "Azioni"
+        show: "Mostra"
+        edit: "Modifica"
+        destroy: "Elimina"
+        confirm_delete: "Sei sicuro?"
+  flash:
+    hello_flash: "Ciao Flash"

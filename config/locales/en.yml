@@ -56,3 +56,21 @@ en:
   books:
     create:
       success: Book created!
+en:
+  activerecord:
+    attributes:
+      person:
+        name: "Name"
+        last_name: "Last Name"
+  views:
+    people:
+      index:
+        title: "Listing People"
+        new: "New Person"
+        actions: "Actions"
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        confirm_delete: "Are you sure?"
+  flash:
+    hello_flash: "Hello Flash"

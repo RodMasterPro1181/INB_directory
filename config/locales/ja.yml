@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    attributes:
+      person:
+        name: "名前"
+        last_name: "姓"
+  views:
+    people:
+      index:
+        title: "人物リスト"
+        new: "新しい人"
+        actions: "アクション"
+        show: "表示"
+        edit: "編集"
+        destroy: "削除"
+        confirm_delete: "本当に削除しますか？"
+  flash:
+    hello_flash: "こんにちは、フラッシュ"
