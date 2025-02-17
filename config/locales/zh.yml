@@ -4,6 +4,14 @@ zh:
       person:
         name: "名字"
         last_name: "姓氏"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "姓名不能为空"
+            last_name:
+              blank: "姓氏不能为空"
   views:
     people:
       index:
@@ -14,5 +22,20 @@ zh:
         edit: "编辑"
         destroy: "删除"
         confirm_delete: "你确定吗？"
+      form:
+        title_new: "新增人员"
+        title_edit: "编辑人员"
+        save: "保存"
+        back: "返回"
+      errors:
+        count: "%{count} 个错误导致此人员无法保存:"
+
   flash:
     hello_flash: "你好，闪存"
+  navbar:
+    home: "首页"
+    about: "关于我们"
+    contact: "联系我们"
+    select_language: "选择语言"
+  footer:
+    rights: "版权所有 Rodrigo 和 Ramón。"

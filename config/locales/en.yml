@@ -58,6 +58,14 @@ en:
       success: Book created!
 en:
   activerecord:
+    errors:
+      models:
+       person:
+        attributes:
+          name:
+            blank: "can't be blank"
+          last_name:
+            blank: "can't be blank"  
     attributes:
       person:
         name: "Name"
@@ -69,8 +77,25 @@ en:
         new: "New Person"
         actions: "Actions"
         show: "Show"
+        back: "Back"
         edit: "Edit"
         destroy: "Destroy"
+        title_destroy: ""
         confirm_delete: "Are you sure?"
+      form:
+        title_new: "New Person"
+        title_edit: "Editing Person"
+        title_destroy: "Destroy Person"
+        save: "Save"
+        back: "Back"
+      errors:
+        count: "%{count} errors prohibited this person from being saved:"  
   flash:
     hello_flash: "Hello Flash"
+  navbar:
+    home: "Home"
+    about: "About"
+    contact: "Contact"
+    select_language: "Select Language"
+  footer:
+    rights: "All rights reserved to Rodrigo and Ramón."

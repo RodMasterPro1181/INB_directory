@@ -1,26 +1,41 @@
 es:
-  product_price: "%{price} €"
-es:
-  currency: "€"
-es:
-  books:
-    index:
-      title: "Título"
-es:
   activerecord:
     attributes:
       person:
         name: "Nombre"
         last_name: "Apellido"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "El nombre no puede estar en blanco"
+            last_name:
+              blank: "El apellido no puede estar en blanco"
   views:
     people:
       index:
-        title: "Listado de Personas"
+        title: "Personas"
         new: "Nueva Persona"
         actions: "Acciones"
         show: "Mostrar"
         edit: "Editar"
+        back: "Salir"
         destroy: "Eliminar"
         confirm_delete: "¿Estás seguro?"
+      form:
+        title_new: "Nueva Persona"
+        title_edit: "Editando Persona"
+        save: "Guardar"
+        back: "Volver"
+      errors:
+        count: "%{count} errores impidieron que esta persona se guardara:"
   flash:
     hello_flash: "Hola Flash"
+  navbar:
+    home: "Inicio"
+    about: "Acerca de"
+    contact: "Contacto"
+    select_language: "Seleccionar idioma"
+  footer:
+    rights: "Todos los derechos reservados a Rodrigo y Ramón."

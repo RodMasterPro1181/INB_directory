@@ -4,6 +4,14 @@ ar:
       person:
         name: "الاسم"
         last_name: "اللقب"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "لا يمكن أن يكون الاسم فارغًا"
+            last_name:
+              blank: "لا يمكن أن يكون اسم العائلة فارغًا"
   views:
     people:
       index:
@@ -14,5 +22,20 @@ ar:
         edit: "تعديل"
         destroy: "حذف"
         confirm_delete: "هل أنت متأكد؟"
+      form:
+        title_new: "شخص جديد"
+        title_edit: "تعديل الشخص"
+        save: "حفظ"
+        back: "عودة"
+      errors:
+        count: "منع %{count} خطأ من حفظ هذا الشخص:"
+
   flash:
     hello_flash: "مرحبًا فلاش"
+  navbar:
+    home: "الصفحة الرئيسية"
+    about: "معلومات عنا"
+    contact: "اتصل بنا"
+    select_language: "اختر اللغة"
+  footer:
+    rights: "جميع الحقوق محفوظة لرودريغو ورامون."

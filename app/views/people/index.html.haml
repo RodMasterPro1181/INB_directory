@@ -14,9 +14,19 @@
           %td= person.name
           %td= person.last_name
           %td
-            = link_to t('views.people.index.show'), person_path(person), class: "btn btn-sm btn-outline-primary me-2"
-            = link_to t('views.people.index.edit'), edit_person_path(person), class: "btn btn-sm btn-outline-secondary me-2"
-            = link_to t('views.people.index.destroy'), person, method: :delete, data: { turbo_confirm: t('views.people.index.confirm_delete') }, class: "btn btn-sm btn-outline-danger"
+            = link_to person_path(person), class: "btn btn-sm btn-outline-primary me-2" do
+              %i.bi.bi-eye-fill.me-1
+              = t('views.people.index.show')
+
+            = link_to edit_person_path(person), class: "btn btn-sm btn-outline-secondary me-2" do
+              %i.bi.bi-pencil-fill.me-1
+              = t('views.people.index.edit')
+
+            = link_to person, method: :delete, data: { turbo_confirm: t('views.people.index.confirm_delete') }, class: "btn btn-sm btn-outline-danger" do
+              %i.bi.bi-trash-fill.me-1
+              = t('views.people.index.destroy')
 
 %div.mt-4
-  = link_to t('views.people.index.new'), new_person_path, class: "btn btn-success"
+  = link_to new_person_path, class: "btn btn-success" do
+    %i.bi.bi-person-plus-fill.me-1
+    = t('views.people.index.new')

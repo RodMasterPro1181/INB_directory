@@ -1,35 +1,36 @@
-$primary-color: #6c63ff; // Cambiar el color principal
+// Definir variables ANTES de importar Bootstrap
+$primary: #6c63ff; // Cambia el color primario de Bootstrap
 $font-family-sans-serif: 'Poppins', sans-serif;
 
-@import "bootstrap";
+@import "bootstrap"; // ✅ Ahora Bootstrap usará las variables personalizadas
 
 body {
   font-family: $font-family-sans-serif;
 }
 
 .navbar {
-  background-color: $primary-color !important;
+  background-color: $primary !important; // ✅ Usa la variable de Bootstrap en lugar de $primary-color
 }
 
 footer {
-  background-color: darken($primary-color, 10%);
+  background-color: darken($primary, 10%);
 }
 
+// Ajustes generales de la página
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-  }
-  
-  .wrapper {
-    flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio disponible */
-  }
-  
-  footer {
-    background-color: #343a40; /* Color de fondo oscuro */
-    color: white; /* Texto blanco */
-    text-align: center;
-    padding: 1rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.wrapper {
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

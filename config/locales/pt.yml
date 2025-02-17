@@ -4,6 +4,14 @@ pt:
       person:
         name: "Nome"
         last_name: "Sobrenome"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "O nome não pode estar em branco"
+            last_name:
+              blank: "O sobrenome não pode estar em branco"
   views:
     people:
       index:
@@ -14,5 +22,21 @@ pt:
         edit: "Editar"
         destroy: "Excluir"
         confirm_delete: "Tem certeza?"
+      form:
+        title_new: "Nova Pessoa"
+        title_edit: "Editando Pessoa"
+        save: "Salvar"
+        back: "Voltar"
+      errors:
+        count: "%{count} erros impediram que esta pessoa fosse salva:"
+
+
   flash:
     hello_flash: "Olá Flash"
+  navbar:
+    home: "Início"
+    about: "Sobre"
+    contact: "Contato"
+    select_language: "Selecionar idioma"
+  footer:
+    rights: "Todos os direitos reservados a Rodrigo e Ramón."

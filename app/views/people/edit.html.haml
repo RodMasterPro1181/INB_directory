@@ -1,10 +1,10 @@
-%h1.text-center.mb-4= action_name == 'new' ? 'New Person' : 'Editing Person'
+%h1.text-center.mb-4= t(action_name == 'new' ? 'views.people.form.title_new' : 'views.people.form.title_edit')
 
 .container
   = form_for @person, html: { class: "needs-validation", novalidate: true } do |f|
     - if @person.errors.any?
       #error_explanation.alert.alert-danger
-        %h4= "#{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:"
+        %h4= t('views.people.errors.count', count: @person.errors.count)
         %ul
           - @person.errors.full_messages.each do |message|
             %li= message
@@ -18,6 +18,10 @@
       = f.text_field :last_name, class: "form-control", required: true
 
     .actions.mt-3
-      = f.submit 'Save', class: "btn btn-primary"
+      = f.submit t('views.people.form.save'), class: "btn btn-primary" do
+        %i.bi.bi-save.me-1
+        = t('views.people.form.save')
 
-  = link_to 'Back', people_path, class: "btn btn-secondary mt-3"
+  = link_to people_path, class: "btn btn-secondary mt-3" do
+    %i.bi.bi-arrow-left-circle.me-1
+    = t('views.people.form.back')

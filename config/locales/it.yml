@@ -4,6 +4,14 @@ it:
       person:
         name: "Nome"
         last_name: "Cognome"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "Il nome non può essere vuoto"
+            last_name:
+              blank: "Il cognome non può essere vuoto"
   views:
     people:
       index:
@@ -14,5 +22,20 @@ it:
         edit: "Modifica"
         destroy: "Elimina"
         confirm_delete: "Sei sicuro?"
+      form:
+        title_new: "Nuova Persona"
+        title_edit: "Modifica Persona"
+        save: "Salva"
+        back: "Indietro"
+      errors:
+        count: "%{count} errori hanno impedito il salvataggio di questa persona:"
+
   flash:
     hello_flash: "Ciao Flash"
+  navbar:
+    home: "Home"
+    about: "Chi siamo"
+    contact: "Contatto"
+    select_language: "Seleziona lingua"
+  footer:
+    rights: "Tutti i diritti riservati a Rodrigo e Ramón."

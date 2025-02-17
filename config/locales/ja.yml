@@ -4,6 +4,14 @@ ja:
       person:
         name: "名前"
         last_name: "姓"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+            last_name:
+              blank: "姓を入力してください"
   views:
     people:
       index:
@@ -14,5 +22,19 @@ ja:
         edit: "編集"
         destroy: "削除"
         confirm_delete: "本当に削除しますか？"
+      form:
+        title_new: "新しい人物"
+        title_edit: "人物の編集"
+        save: "保存"
+        back: "戻る"
+      errors:
+        count: "%{count} 件のエラーにより、この人物を保存できませんでした:"
   flash:
     hello_flash: "こんにちは、フラッシュ"
+  navbar:
+    home: "ホーム"
+    about: "私たちについて"
+    contact: "お問い合わせ"
+    select_language: "言語を選択"
+  footer:
+    rights: "全著作権所有 Rodrigo と Ramón。"

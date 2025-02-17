@@ -4,6 +4,14 @@ fr:
       person:
         name: "Nom"
         last_name: "Nom de famille"
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "Le nom ne peut pas être vide"
+            last_name:
+              blank: "Le nom de famille ne peut pas être vide"
   views:
     people:
       index:
@@ -14,5 +22,19 @@ fr:
         edit: "Modifier"
         destroy: "Supprimer"
         confirm_delete: "Êtes-vous sûr?"
+      form:
+        title_new: "Nouvelle personne"
+        title_edit: "Modification de la personne"
+        save: "Enregistrer"
+        back: "Retour"
+      errors:
+        count: "%{count} erreurs ont empêché cette personne d'être enregistrée :"  
   flash:
     hello_flash: "Bonjour Flash"
+  navbar:
+    home: "Accueil"
+    about: "À propos"
+    contact: "Contact"
+    select_language: "Choisir la langue"
+  footer:
+    rights: "Tous droits réservés à Rodrigo et Ramón."
