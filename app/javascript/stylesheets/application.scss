@@ -2,7 +2,10 @@
 $primary: #6c63ff; // Cambia el color primario de Bootstrap
 $font-family-sans-serif: 'Poppins', sans-serif;
 
-@import "bootstrap"; // ✅ Ahora Bootstrap usará las variables personalizadas
+
+
+@import "bootstrap";
+
 
 body {
   font-family: $font-family-sans-serif;

@@ -11,6 +11,12 @@
     = @person.name 
 
   .mt-3
-    = link_to t('views.people.index.edit'), edit_person_path(@person), class: "btn btn-outline-primary me-2"
-    = link_to t('views.people.index.back'), people_path, class: "btn btn-outline-secondary me-2"
-    = link_to t('views.people.index.destroy'), person_path(@person), method: :delete, data: { confirm: t('views.people.index.confirm_delete') }, class: "btn btn-outline-danger"
+    = link_to edit_person_path(@person), class: "btn btn-outline-primary me-2" do
+      %i.fas.fa-edit
+      =t('views.people.index.edit')
+    = link_to people_path, class: "btn btn-outline-secondary me-2" do
+      %i.bi.bi-arrow-left-circle.me-1
+      =t('views.people.index.back') 
+    = link_to person_path(@person), method: :delete, data: { confirm: t('views.people.index.confirm_delete') }, class: "btn btn-outline-danger" do
+      %i.bi.bi-trash-fill.me-1
+      =t('views.people.index.destroy')
