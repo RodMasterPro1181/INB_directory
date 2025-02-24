@@ -1,22 +1,23 @@
-%p#notice.text-success= notice if notice
+-# Notificación (si existe)
+%p#notice= notice if notice
 
-%h1.text-center.mb-4= t('views.people.show.title')
+%h1.title= t('views.people.show.title')
 
-.container
+%div.person-details
   %p
-    %strong= "#{Person.human_attribute_name(:last_name)}:"
-    = @person.last_name
-  %p  
-    %strong= "#{Person.human_attribute_name(:name)}:"
-    = @person.name 
+    %strong= "#{Person.human_attribute_name(:last_name)}: "
+    %span= @person.last_name
+  %p
+    %strong= "#{Person.human_attribute_name(:name)}: "
+    %span= @person.name
 
-  .mt-3
-    = link_to edit_person_path(@person), class: "btn btn-outline-primary me-2" do
-      %i.fas.fa-edit
-      =t('views.people.index.edit')
-    = link_to people_path, class: "btn btn-outline-secondary me-2" do
-      %i.bi.bi-arrow-left-circle.me-1
-      =t('views.people.index.back') 
-    = link_to person_path(@person), method: :delete, data: { confirm: t('views.people.index.confirm_delete') }, class: "btn btn-outline-danger" do
-      %i.bi.bi-trash-fill.me-1
-      =t('views.people.index.destroy')
+%div.actions
+  = link_to edit_person_path(@person), class: "btn btn-outline-primary" do
+    %i.fa-solid.fa-edit
+    = t('views.people.index.edit')
+  = link_to people_path, class: "btn btn-outline-secondary" do
+    %i.fa-solid.fa-arrow-left
+    = t('views.people.index.back')
+  = link_to person_path(@person), method: :delete, data: { confirm: t('views.people.index.confirm_delete') }, class: "btn btn-outline-danger" do
+    %i.fa-solid.fa-trash
+    = t('views.people.index.destroy')

@@ -1,32 +1,29 @@
-%h1.text-center.mb-4= t('views.people.index.title')
+%h1.title= t('views.people.index.title')
 
-%div.table-responsive
-  %table.table.table-striped.table-hover.table-bordered
-    %thead.table-dark
+%div.table-wrapper
+  %table.people-table
+    %thead
       %tr
         %th= Person.human_attribute_name(:name)
         %th= Person.human_attribute_name(:last_name)
         %th= t('views.people.index.actions')
-
     %tbody
       - @people.each do |person|
         %tr
           %td= person.name
           %td= person.last_name
-          %td
-            = link_to person_path(person), class: "btn btn-sm btn-outline-primary me-2" do
-              %i.fa-solid.fa-eye.me-1
+          %td.actions
+            = link_to person_path(person), class: "btn btn-primary" do
+              %i.fa-solid.fa-eye
               = t('views.people.index.show')
-
-            = link_to edit_person_path(person), class: "btn btn-sm btn-outline-secondary me-2" do
-              %i.fa-solid.fa-pen-to-square.me-1
+            = link_to edit_person_path(person), class: "btn btn-secondary" do
+              %i.fa-solid.fa-pen-to-square
               = t('views.people.index.edit')
-
-            = link_to person, method: :delete, data: { turbo_confirm: t('views.people.index.confirm_delete') }, class: "btn btn-sm btn-outline-danger" do
-              %i.fa-solid.fa-trash.me-1
+            = link_to person, method: :delete, data: { turbo_confirm: t('views.people.index.confirm_delete') }, class: "btn btn-danger" do
+              %i.fa-solid.fa-trash
               = t('views.people.index.destroy')
 
-%div.mt-4
+%div
   = link_to new_person_path, class: "btn btn-success" do
-    %i.fa-solid.fa-user-plus.me-1
+    %i.fa-solid.fa-user-plus
     = t('views.people.index.new')

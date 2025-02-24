@@ -1,39 +1,105 @@
-// Definir variables ANTES de importar Bootstrap
-$primary: #6c63ff; // Cambia el color primario de Bootstrap
-$font-family-sans-serif: 'Poppins', sans-serif;
 
-
-
-@import "bootstrap";
-
+// Variables de colores
+$primary: #6c63ff;
+$dark: #343a40;
+$light: #f8f9fa;
 
 body {
-  font-family: $font-family-sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 .navbar {
-  background-color: $primary !important; // ✅ Usa la variable de Bootstrap en lugar de $primary-color
-}
-
-footer {
-  background-color: darken($primary, 10%);
-}
-
-// Ajustes generales de la página
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.wrapper {
-  flex-grow: 1;
-}
-
-footer {
-  background-color: #343a40;
-  color: white;
-  text-align: center;
+  background-color: #6c63ff;
   padding: 1rem;
+  color: white;
+
+  .navbar-brand {
+    font-weight: bold;
+  }
+
+  .navbar-toggler {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-nav {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+
+      li a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
 }
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.people-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #6c63ff;
+    color: white;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-outline-primary {
+  border: 1px solid #6c63ff;
+  color: #6c63ff;
+}
+
+.btn-outline-danger {
+  border: 1px solid #dc3545;
+  color: #dc3545;
+}
+

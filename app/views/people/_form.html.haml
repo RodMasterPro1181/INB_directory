@@ -8,9 +8,9 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, class: "input-field"
   .field
     = f.label :last_name
-    = f.text_field :last_name
+    = f.text_field :last_name, class: "input-field"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-primary"

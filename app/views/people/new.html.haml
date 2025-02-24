@@ -1,28 +1,29 @@
-%h1.text-center.mb-4= t(action_name == 'new' ? 'views.people.form.title_new' : 'views.people.form.title_edit')
+%h1.title= t(action_name == 'new' ? 'views.people.form.title_new' : 'views.people.form.title_edit')
 
-.container
-  = form_for @person, html: { class: "needs-validation", novalidate: true } do |f|
+%div.form-container
+  = form_for @person, html: { novalidate: true } do |f|
     - if @person.errors.any?
-      #error_explanation.alert.alert-danger
+      #error_explanation
         %h4= t('views.people.errors.count', count: @person.errors.count)
         %ul
           - @person.errors.full_messages.each do |message|
             %li= message
 
-    .mb-3
-      = f.label :name, class: "form-label"
-      = f.text_field :name, class: "form-control", required: true
+    .field-group
+      = f.label :name
+      = f.text_field :name, class: "input-field", required: true
 
-    .mb-3
-      = f.label :last_name, class: "form-label"
-      = f.text_field :last_name, class: "form-control", required: true
+    .field-group
+      = f.label :last_name
+      = f.text_field :last_name, class: "input-field", required: true
 
-    .actions.mt-3
+    .actions
       = f.submit t('views.people.form.save'), class: "btn btn-primary" do
-        %i.fa-solid.fa-floppy-disk.me-1
+        %i.fa-solid.fa-floppy-disk
         = t('views.people.form.save')
 
-  = link_to people_path, class: "btn btn-secondary mt-3" do
-    %i.fa-solid.fa-arrow-left.me-1
+  = link_to people_path, class: "btn btn-secondary" do
+    %i.fa-solid.fa-arrow-left
     = t('views.people.form.back')
+
 
