@@ -88,14 +88,15 @@ body {
 
   th, td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #6c63ff;
   }
 
   th {
-    background-color: #6c63ff;
+    background-color: #343a40;
     color: white;
   }
 }
+
 
 .btn {
   display: inline-flex;
@@ -103,7 +104,58 @@ body {
   gap: 5px;
   padding: 8px 12px;
   border-radius: 5px;
-  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #6a5acd; /* Morado */
+}
+
+.btn-warning {
+  background-color: #6c757d; /* Gris */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Rojo */
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
+.btn-success {
+  background-color: #28a745 !important; /* Verde */
+  color: white !important;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-success:hover {
+  background-color: #218838 !important;
+}
+
+.btn-secondary {
+  background-color: #6c63ff !important; /* Gris */
+  color: white !important;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268 !important;
+  color: white !important;
 }
 
 .field-group {

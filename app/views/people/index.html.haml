@@ -19,7 +19,7 @@
             = link_to edit_person_path(person), class: "btn btn-warning" do
               %i.fa-solid.fa-pen-to-square
               = t('views.people.index.edit')
-            = link_to person, method: :delete, data: { turbo_confirm: t('views.people.index.confirm_delete') }, class: "btn btn-danger" do
+            = link_to person_path(person), method: :delete, data: { turbo_confirm: t('views.people.index.confirm_delete') }, class: "btn btn-danger" do
               %i.fa-solid.fa-trash
               = t('views.people.index.destroy')
 
@@ -27,4 +27,6 @@
   = link_to new_person_path, class: "btn btn-success" do
     %i.fa-solid.fa-user-plus
     = t('views.people.index.new')
+
+
 
