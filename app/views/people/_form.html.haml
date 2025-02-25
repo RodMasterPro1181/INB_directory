@@ -9,8 +9,16 @@
   .field
     = f.label :name
     = f.text_field :name, class: "input-field"
+
   .field
     = f.label :last_name
     = f.text_field :last_name, class: "input-field"
+
   .actions
-    = f.submit 'Save', class: "btn btn-primary"
+    = f.submit t('views.people.form.save'), class: "btn btn-success" do
+      %i.fa-solid.fa-floppy-disk
+      = t('views.people.form.save')
+
+  = link_to people_path, class: "btn btn-secondary" do
+    %i.fa-solid.fa-arrow-left
+    = t('views.people.form.back')

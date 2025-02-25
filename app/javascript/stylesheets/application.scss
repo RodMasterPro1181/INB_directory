@@ -11,39 +11,67 @@ body {
 }
 
 .navbar {
-  background-color: #6c63ff;
-  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4c3cff;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
   color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  .navbar-brand {
-    font-weight: bold;
-  }
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
 
-  .navbar-toggler {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: white;
-    cursor: pointer;
-  }
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  .navbar-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+}
 
-    .navbar-nav {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      gap: 1rem;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 1000;
+}
 
-      li a {
-        color: white;
-        text-decoration: none;
-      }
-    }
-  }
+.language-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
 }
 
 .table-wrapper {
@@ -72,34 +100,27 @@ body {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 5px;
+  padding: 8px 12px;
   border-radius: 5px;
-  text-decoration: none;
+  font-size: 14px;
 }
 
-.btn-primary {
-  background-color: #6c63ff;
-  color: white;
+.field-group {
+  margin-bottom: 15px;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
-.btn-danger {
-  background-color: #dc3545;
-  color: white;
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.btn-outline-primary {
-  border: 1px solid #6c63ff;
-  color: #6c63ff;
-}
-
-.btn-outline-danger {
-  border: 1px solid #dc3545;
-  color: #dc3545;
-}
 

@@ -28,6 +28,8 @@ es:
         title_edit: "Editando Persona"
         save: "Guardar"
         back: "Volver"
+      show:
+        title: "Mostrando a la persona"
       errors:
         count: "%{count} errores impidieron que esta persona se guardara:"
   flash:
