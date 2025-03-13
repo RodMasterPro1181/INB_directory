@@ -6,12 +6,20 @@
       %tr
         %th= Person.human_attribute_name(:name)
         %th= Person.human_attribute_name(:last_name)
+        %th= "Emails"
         %th= t('views.people.index.actions')
     %tbody
       - @people.each do |person|
         %tr
           %td= person.name
           %td= person.last_name
+          %td
+            - if person.emails.any?
+              %ul
+                - person.emails.each do |email|
+                  %li= email.email
+            - else
+              %em No tiene emails
           %td.actions
             = link_to person_path(person), class: "btn btn-primary" do
               %i.fa-solid.fa-eye
@@ -28,5 +36,8 @@
     %i.fa-solid.fa-user-plus
     = t('views.people.index.new')
 
+  = link_to new_email_path, class: "btn btn-success" do
+    %i.fa-solid.fa-envelope
+    Agregar Email
 
 

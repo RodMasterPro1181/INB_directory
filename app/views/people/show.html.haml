@@ -11,6 +11,14 @@
     %strong= "#{Person.human_attribute_name(:name)}: "
     %span= @person.name
 
+%h2 Emails
+- if @person.emails.any?
+  %ul
+    - @person.emails.each do |email|
+      %li= email.email
+- else
+  %p No tiene emails registrados.
+
 %div.actions
   = link_to edit_person_path(@person), class: "btn btn-warning" do
     %i.fa-solid.fa-edit
@@ -23,3 +31,4 @@
   = link_to person_path(@person), method: :delete, data: { confirm: t('views.people.index.confirm_delete') }, class: "btn btn-danger" do
     %i.fa-solid.fa-trash
     = t('views.people.index.destroy')
+

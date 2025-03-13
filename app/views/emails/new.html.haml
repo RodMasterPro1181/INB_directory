@@ -1,0 +1,15 @@
+%h1 Nuevo Email
+
+= form_with model: @email, url: emails_path, local: true do |f|
+  .form-group
+    = f.label :person_id, "Persona"
+    = f.collection_select :person_id, Person.all, :id, :name, include_blank: "Selecciona una persona"
+  
+  .form-group
+    = f.label :email, "Correo Electrónico"
+    = f.text_field :email, class: "form-control"
+
+  .actions
+    = f.submit "Guardar", class: "btn btn-success"
+
+= link_to "Cancelar", people_path, class: "btn btn-secondary"

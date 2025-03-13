@@ -3,6 +3,8 @@ class Person < ApplicationRecord
 validates :name, presence: true, length:{maximum: 20}
 validates :last_name, presence: true, length:{maximum: 20}
 
-#Rama1,vamos a verificar que ya se pueden eliminar los registros, commit2
-
+  has_many :emails, dependent: :destroy
+  accepts_nested_attributes_for :emails, allow_destroy: true
 end
+
+ 

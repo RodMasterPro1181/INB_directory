@@ -23,5 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".remove-email").forEach(button => {
+    button.addEventListener("click", function(event) {
+      event.preventDefault();
+      let emailGroup = this.closest(".email-group");
+      emailGroup.querySelector("input[type='hidden']").value = "1"; // Marcar para eliminación
+      emailGroup.style.display = "none"; // Ocultar en la vista
+    });
+  });
+});
+
   
   

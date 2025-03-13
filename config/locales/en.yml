@@ -82,6 +82,8 @@ en:
         destroy: "Destroy"
         title_destroy: ""
         confirm_delete: "Are you sure?"
+      email:
+        new: "New Email"
       show: 
         title: "Show people"
       form:

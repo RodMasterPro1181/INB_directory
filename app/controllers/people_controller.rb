@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: %i[ show edit update destroy ]
-  
+  before_action :set_person, only: %i[show edit update destroy]
+
   # GET /people or /people.json
   def index
     flash[:notice] = t('flash.hello_flash')
-    @people = Person.all
+    @people = Person.includes(:emails).all
   end
 
   # GET /people/1 or /people/1.json
@@ -14,11 +14,15 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    @person.emails.build # Agregar un campo de email vacío en el formulario
   end
 
   # GET /people/1/edit
   def edit
+    @person = Person.includes(:emails).find(params[:id])
+    @person.emails.build if @person.emails.empty? # Agregar un campo vacío si no tiene emails
   end
+  
 
   # POST /people or /people.json
   def create
@@ -26,7 +30,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: "Person was successfully created." }
+        format.html { redirect_to @person, notice: "Persona creada exitosamente." }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +43,7 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
-        format.html { redirect_to @person, notice: "Person was successfully updated." }
+        format.html { redirect_to @person, notice: "Persona actualizada exitosamente." }
         format.json { render :show, status: :ok, location: @person }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +57,20 @@ class PeopleController < ApplicationController
     @person.destroy!
 
     respond_to do |format|
-      format.html { redirect_to people_path, status: :see_other, notice: "Person was successfully destroyed." }
+      format.html { redirect_to people_path, status: :see_other, notice: "Persona eliminada exitosamente." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_person
-      @person = Person.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def person_params
-      params.expect(person: [ :name, :last_name ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_person
+    @person = Person.includes(:emails).find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def person_params
+    params.require(:person).permit(:name, :last_name, emails_attributes: [:id, :email, :_destroy])
+  end
 end

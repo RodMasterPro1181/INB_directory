@@ -17,6 +17,19 @@
       = f.label :last_name
       = f.text_field :last_name, class: "input-field", required: true
 
+    %h2 Emails
+    .emails-container
+      = f.fields_for :emails, @person.emails do |email_form|
+        .email-group
+          = email_form.label :email, "Correo Electrónico"
+          = email_form.text_field :email, class: "input-field"
+          = email_form.hidden_field :id
+          
+          - if email_form.object.persisted?
+            = email_form.check_box :_destroy
+            = email_form.label :_destroy, "Eliminar email"
+
+    %br
     .actions
       %button.btn.btn-success{ type: "submit" }
         %i.fa-solid.fa-floppy-disk
