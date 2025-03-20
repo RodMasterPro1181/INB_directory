@@ -1,24 +1,19 @@
-= form_for @person do |f|
-  - if @person.errors.any?
+= form_for person, html: { novalidate: true, data: { turbo_frame: "person_form" } } do |f|
+  - if person.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
+      %h4= "Errores encontrados"
       %ul
-        - @person.errors.full_messages.each do |message|
+        - person.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .field-group
     = f.label :name
-    = f.text_field :name, class: "input-field"
+    = f.text_field :name, class: "input-field", required: true, data: { action: "input->emails#autosave" }
 
-  .field
+  .field-group
     = f.label :last_name
-    = f.text_field :last_name, class: "input-field"
+    = f.text_field :last_name, class: "input-field", required: true, data: { action: "input->emails#autosave" }
 
-  .actions
-    = f.submit t('views.people.form.save'), class: "btn btn-success" do
-      %i.fa-solid.fa-floppy-disk
-      = t('views.people.form.save')
-
-  = link_to people_path, class: "btn btn-secondary" do
-    %i.fa-solid.fa-arrow-left
-    = t('views.people.form.back')
+  %button.btn.btn-success{ type: "submit" }
+    %i.fa-solid.fa-floppy-disk
+    Guardar

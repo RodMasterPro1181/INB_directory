@@ -1,7 +1,7 @@
 %h1.title= t(action_name == 'new' ? 'views.people.form.title_new' : 'views.people.form.title_edit')
 
 %div.form-container
-  = form_for @person, html: { novalidate: true } do |f|
+  = form_for @person, html: { novalidate: true, data: { controller: "email" } } do |f|  # ✅ Conectamos Stimulus
     - if @person.errors.any?
       #error_explanation
         %h4= t('views.people.errors.count', count: @person.errors.count)
@@ -18,18 +18,21 @@
       = f.text_field :last_name, class: "input-field", required: true
 
     %h2 Emails
-    .emails-container
-      = f.fields_for :emails, @person.emails do |email_form|
-        .email-group
-          = email_form.label :email, "Correo Electrónico"
-          = email_form.text_field :email, class: "input-field"
-          = email_form.hidden_field :id
-          
-          - if email_form.object.persisted?
-            = email_form.check_box :_destroy
-            = email_form.label :_destroy, "Eliminar email"
+    .emails-container{ data: { email_target: "emails"} }
+      #emails.email-groups
+        = render 'emails', person: @person, form: f  # ✅ Renderizamos emails existentes
 
-    %br
+    - new_email_template = capture do
+      = f.fields_for :emails, Email.new, child_index: "NEW_RECORD" do |ff|
+        = render 'email_fields', f: ff
+
+    %template{ data: { email_template_target: "template" } }
+      = new_email_template
+
+    %button.btn.btn-primary{ type: "button", data: { action: "email#add" } }
+      %i.fa-solid.fa-plus
+      Agregar Email
+
     .actions
       %button.btn.btn-success{ type: "submit" }
         %i.fa-solid.fa-floppy-disk
@@ -39,4 +42,4 @@
     %i.fa-solid.fa-arrow-left
     = t('views.people.form.back')
 
-
+  

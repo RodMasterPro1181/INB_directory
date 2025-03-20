@@ -19,6 +19,10 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
     @person = Person.includes(:emails).find(params[:id])
     @person.emails.build if @person.emails.empty? # Agregar un campo vacío si no tiene emails
   end
@@ -41,16 +45,17 @@ class PeopleController < ApplicationController
 
   # PATCH/PUT /people/1 or /people/1.json
   def update
-    respond_to do |format|
-      if @person.update(person_params)
-        format.html { redirect_to @person, notice: "Persona actualizada exitosamente." }
-        format.json { render :show, status: :ok, location: @person }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
+    @person = Person.find(params[:id])
+    if @person.update(person_params)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to @person, notice: "Persona actualizada correctamente." }
       end
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
+  
 
   # DELETE /people/1 or /people/1.json
   def destroy
@@ -66,11 +71,16 @@ class PeopleController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_person
-    @person = Person.includes(:emails).find(params[:id])
+    @person = Person.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def person_params
     params.require(:person).permit(:name, :last_name, emails_attributes: [:id, :email, :_destroy])
+  end
+ 
+  def new_email
+    @person = Person.new
+    @email = @person.emails.build
+    render partial: "email_fields", locals: { email: @email }
   end
 end

@@ -1,0 +1,4 @@
+- person.emails.each do |email|
+  = turbo_frame_tag dom_id(email) do
+    = form.fields_for :emails, email do |email_form|
+      = render 'email_fields', f: email_form, email: email

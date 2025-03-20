@@ -1,5 +1,6 @@
 import "../stylesheets/application.scss";
 import Rails from "@rails/ujs";
+import "controllers"
 Rails.start()
 import "@fortawesome/fontawesome-free/css/all.css";
 document.addEventListener("DOMContentLoaded", function () {
@@ -34,5 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-  
+import { Application } from "@hotwired/stimulus"
+import EmailController from "./controllers/email_controller"
+
+const application = Application.start()
+application.register("email", EmailController)
+
   

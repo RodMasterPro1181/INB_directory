@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :people
   resources :people, only: [:index]
   resources :emails, only: [:new, :create]
+  resources :people do
+    get 'new_email', on: :collection
+  end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
