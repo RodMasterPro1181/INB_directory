@@ -43,6 +43,9 @@
 
     <!-- Contenido principal -->
     <main class="container">
+    <div data-controller="prueba">
+      Prueba de Stimulus
+    </div>
       <%= yield %>
     </main>
 
@@ -51,7 +54,6 @@
       <p>&copy; <%= Time.now.year %> <%= t('footer.rights') %></p>
     </footer>
 
-    <script src="application.js" defer></script>
     <script>
       function toggleMenu() {
         document.getElementById("navbarMenu").classList.toggle("active");

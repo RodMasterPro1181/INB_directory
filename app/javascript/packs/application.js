@@ -23,22 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".remove-email").forEach(button => {
-    button.addEventListener("click", function(event) {
-      event.preventDefault();
-      let emailGroup = this.closest(".email-group");
-      emailGroup.querySelector("input[type='hidden']").value = "1"; // Marcar para eliminación
-      emailGroup.style.display = "none"; // Ocultar en la vista
-    });
-  });
-});
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 
-import { Application } from "@hotwired/stimulus"
-import EmailController from "./controllers/email_controller"
+const application = Application.start();
+const context = require.context("../controllers", true, /\.js$/);
+application.load(definitionsFromContext(context));
 
-const application = Application.start()
-application.register("email", EmailController)
+
 
   
