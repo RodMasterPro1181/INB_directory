@@ -1,7 +1,7 @@
 %h1.title= t(action_name == 'new' ? 'views.people.form.title_new' : 'views.people.form.title_edit')
 
 %div.form-container
-  = form_for @person, html: { novalidate: true, data: { controller: "email" } } do |f|  # ✅ Conectamos Stimulus
+  = form_for @person, html: { novalidate: true, data: { controller: "emails" } } do |f|
     - if @person.errors.any?
       #error_explanation
         %h4= t('views.people.errors.count', count: @person.errors.count)
@@ -18,18 +18,19 @@
       = f.text_field :last_name, class: "input-field", required: true
 
     %h2 Emails
-    .emails-container{ data: { email_target: "emails"} }
+    .emails-container{ data: { emails_target: "emails"} }
       #emails.email-groups
-        = render 'emails', person: @person, form: f  # ✅ Renderizamos emails existentes
+        = f.fields_for :emails do |ff|
+          = render 'email_fields', f: ff, new_record: false  # ✅ Renderiza emails existentes
 
     - new_email_template = capture do
       = f.fields_for :emails, Email.new, child_index: "NEW_RECORD" do |ff|
-        = render 'email_fields', f: ff
+        = render 'email_fields', f: ff, new_record: true  # ✅ Plantilla para nuevos emails
 
-    %template{ data: { email_template_target: "template" } }
+    %template{ data: { emails_target: "template" } }
       = new_email_template
 
-    %button.btn.btn-primary{ type: "button", data: { action: "email#add" } }
+    %button.btn.btn-primary{ type: "button", data: { action: "emails#add" } }
       %i.fa-solid.fa-plus
       Agregar Email
 

@@ -1,13 +1,9 @@
-.email-group
-  = f.label :email, "Correo Electrónico"
-  = f.text_field :email, class: "input-field"
+.email-entry{ data: { new_record: new_record } }
   = f.hidden_field :id
-
-  - if f.object.persisted?
-    = f.check_box :_destroy
-    = f.label :_destroy, "Eliminar email"
-
-  %button.btn.btn-danger{ type: "button", data: { action: "email#remove" } }
+  = f.text_field :email, class: "input-field", required: true
+  = f.hidden_field :_destroy
+  %button.btn.btn-danger{ type: "button", data: { action: "emails#remove" } }
     %i.fa-solid.fa-trash
     Eliminar
+
 

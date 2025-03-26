@@ -1,25 +1,33 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["emails"];
+  static targets = ["emails", "template"];
+
+  connect() {
+    console.log("📧 Controlador de emails cargado");
+  }
 
   add(event) {
     event.preventDefault();
-
-    // Clonar un campo de email existente o crear uno nuevo
-    let newEmailField = document.createElement("div");
-    newEmailField.innerHTML = `
-      <input type="text" name="person[emails][]" class="input-field" required>
-      <button type="button" data-action="click->email#remove">❌</button>
-    `;
-
-    this.emailsTarget.appendChild(newEmailField);
+    const newEmail = this.templateTarget.content.cloneNode(true);
+    newEmail.querySelector("input").removeAttribute("disabled"); // Habilitar campo oculto
+    this.emailsTarget.appendChild(newEmail);
   }
 
   remove(event) {
     event.preventDefault();
-    event.target.closest("div").remove();
+    const emailEntry = event.target.closest(".email-entry");
+    
+    if (emailEntry.dataset.newRecord === "true") {
+      // Si es un nuevo email, lo eliminamos del DOM
+      emailEntry.remove();
+    } else {
+      // Si es un email existente, marcamos el campo oculto `_destroy`
+      emailEntry.querySelector("input[name*='_destroy']").value = "1";
+      emailEntry.style.display = "none"; // Ocultar en la UI
+    }
   }
 }
+
 
 
