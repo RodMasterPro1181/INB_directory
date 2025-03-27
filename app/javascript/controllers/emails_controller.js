@@ -9,25 +9,27 @@ export default class extends Controller {
 
   add(event) {
     event.preventDefault();
-    const newEmail = this.templateTarget.content.cloneNode(true);
-    newEmail.querySelector("input").removeAttribute("disabled"); // Habilitar campo oculto
-    this.emailsTarget.appendChild(newEmail);
+
+    const newIndex = new Date().getTime().toString(); // Generar un índice único
+    const templateHTML = this.templateTarget.innerHTML.replace(/NEW_INDEX/g, newIndex);
+    
+    this.emailsTarget.insertAdjacentHTML("beforeend", templateHTML);
   }
 
   remove(event) {
     event.preventDefault();
     const emailEntry = event.target.closest(".email-entry");
-    
+
     if (emailEntry.dataset.newRecord === "true") {
-      // Si es un nuevo email, lo eliminamos del DOM
-      emailEntry.remove();
+      emailEntry.remove();  // Eliminar del DOM si es un nuevo campo
     } else {
-      // Si es un email existente, marcamos el campo oculto `_destroy`
+      // Marcar el campo como eliminado y ocultarlo en la UI
       emailEntry.querySelector("input[name*='_destroy']").value = "1";
-      emailEntry.style.display = "none"; // Ocultar en la UI
+      emailEntry.style.display = "none";
     }
   }
 }
+
 
 
 

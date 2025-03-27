@@ -1,3 +1,5 @@
+
+
 %h1.title= t(action_name == 'new' ? 'views.people.form.title_new' : 'views.people.form.title_edit')
 
 %div.form-container
@@ -21,13 +23,12 @@
     .emails-container{ data: { emails_target: "emails"} }
       #emails.email-groups
         = f.fields_for :emails do |ff|
-          = render 'email_fields', f: ff, new_record: false  # ✅ Renderiza emails existentes
-
-    - new_email_template = capture do
-      = f.fields_for :emails, Email.new, child_index: "NEW_RECORD" do |ff|
-        = render 'email_fields', f: ff, new_record: true  # ✅ Plantilla para nuevos emails
+          = render 'email_fields', f: ff, new_record: false
 
     %template{ data: { emails_target: "template" } }
+      - new_email_template = capture do
+        = f.fields_for :emails, Email.new, child_index: "NEW_INDEX" do |ff|
+          = render 'email_fields', f: ff, new_record: true
       = new_email_template
 
     %button.btn.btn-primary{ type: "button", data: { action: "emails#add" } }
@@ -42,5 +43,3 @@
   = link_to people_path, class: "btn btn-secondary" do
     %i.fa-solid.fa-arrow-left
     = t('views.people.form.back')
-
-  
